@@ -18,7 +18,7 @@
   
       ,"page2": {
           "title": "",
-          "content": ". A collection of Irish language natural language processing (NLP) text datasets for NLP research. . Want to add to this collection? Feel free to add a pull request or open an issue on https://github.com/nlp-irish/nlp.irish . Datasets . General Corpora: . Task-specific corpora: .",
+          "content": "img { display: block; margin-left: auto; margin-right: auto; } . . A collection of Irish language natural language processing (NLP) text datasets for NLP research. . Want to add to this collection? Feel free to add a pull request or open an issue on https://github.com/nlp-irish/nlp.irish . Datasets . General Corpora: . Task-specific corpora: .",
           "url": "https://nlp-irish.github.io/nlp.irish/",
           "relUrl": "/",
           "date": ""
