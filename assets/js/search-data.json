@@ -7,7 +7,7 @@
   
       "page1": {
           "title": "About",
-          "content": "Unlike English, there didn’t seem to be a easily discoverable collection of definitive, open source Irish language datasets for NLP research. . nlp.Irish hopes to address that by cataloguing the open source datasets available today . All of the information on this site is open source and is hosted at https://github.com/nlp-irish/nlp.irish . .",
+          "content": "Unlike English, there didn’t seem to be a easily discoverable collection of definitive, open source Irish language datasets for NLP research. nlp.Irish hopes to address that by cataloguing the open source datasets available online today. . Like to contribute? . All of the information on this site is open source and is hosted at https://github.com/nlp-irish/nlp.irish To contribute: . Open a pull request and edit the index.html file to include the link and other information about the dataset | Submit the pull request and we’ll review it before merging | Done! | Not familiar with Github? No worries, reach out to @mcgenergy on Twitter if you’d like to contribute and add links to new datasets or any other useful information . .",
           "url": "https://nlp-irish.github.io/nlp.irish/about/",
           "relUrl": "/about/",
           "date": ""
