@@ -6,8 +6,8 @@
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 
-title: fastpages
-description: An easy to use blogging platform with support for Jupyter Notebooks.
+title: nlp.Irish
+description: Curated Irish language datasets for NLP research
 github_username: nlp-irish
 # you can comment the below line out if your repo name is not different than your baseurl
 github_repo: "nlp.irish"
@@ -39,8 +39,8 @@ baseurl: "/nlp.irish" # the subpath of your site, e.g. "/blog".
 # Github and twitter are optional:
 minima:
   social_links:
-    twitter: fastdotai
-    github: fastai
+    twitter: 
+    github: nlp-irish
 
 # Set this to true to get LaTeX math equation support
 use_math: 

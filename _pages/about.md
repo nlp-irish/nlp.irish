@@ -1,13 +1,13 @@
 ---
 layout: page
-title: About Me
+title: About
 permalink: /about/
 ---
 
-This is where you put the contents of your *About* page. Like all your pages, it's in [Markdown](https://guides.github.com/features/mastering-markdown/) format.
+Unlike English, there didn't seem to be a easily discoverable collection of definitive, open source Irish language datasets for NLP research.
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+nlp.Irish hopes to address that by cataloguing the open source datasets available today
 
+All of the information on this site is open source and is hosted at [https://github.com/nlp-irish/nlp.irish](https://github.com/nlp-irish/nlp.irish)
 
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
+![]({{site.baseurl}}/images/nlpirish_logo.png "nlp.Irish")
