@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>ParaCrawl | nlp.Irish</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="ParaCrawl" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Open source tools to crawl, align and clean bilingual data" />
+<meta property="og:description" content="Open source tools to crawl, align and clean bilingual data" />
+<link rel="canonical" href="https://nlp-irish.github.io/nlp.irish/paracrawl,/translation,/nmt,/mt/2020/06/11/ParaCrawl.html" />
+<meta property="og:url" content="https://nlp-irish.github.io/nlp.irish/paracrawl,/translation,/nmt,/mt/2020/06/11/ParaCrawl.html" />
+<meta property="og:site_name" content="nlp.Irish" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-11T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Open source tools to crawl, align and clean bilingual data","@type":"BlogPosting","headline":"ParaCrawl","dateModified":"2020-06-11T00:00:00-05:00","datePublished":"2020-06-11T00:00:00-05:00","url":"https://nlp-irish.github.io/nlp.irish/paracrawl,/translation,/nmt,/mt/2020/06/11/ParaCrawl.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://nlp-irish.github.io/nlp.irish/paracrawl,/translation,/nmt,/mt/2020/06/11/ParaCrawl.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/nlp.irish/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nlp-irish.github.io/nlp.irish/feed.xml" title="nlp.Irish" /><link rel="shortcut icon" type="image/x-icon" href="/nlp.irish/images/nlp_favicon.ico">
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>ParaCrawl | nlp.Irish</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="ParaCrawl" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Open source tools to crawl, align and clean bilingual data" />
+<meta property="og:description" content="Open source tools to crawl, align and clean bilingual data" />
+<link rel="canonical" href="https://nlp-irish.github.io/nlp.irish/paracrawl,/translation,/nmt,/mt/2020/06/11/ParaCrawl.html" />
+<meta property="og:url" content="https://nlp-irish.github.io/nlp.irish/paracrawl,/translation,/nmt,/mt/2020/06/11/ParaCrawl.html" />
+<meta property="og:site_name" content="nlp.Irish" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-11T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Open source tools to crawl, align and clean bilingual data","@type":"BlogPosting","headline":"ParaCrawl","dateModified":"2020-06-11T00:00:00-05:00","datePublished":"2020-06-11T00:00:00-05:00","url":"https://nlp-irish.github.io/nlp.irish/paracrawl,/translation,/nmt,/mt/2020/06/11/ParaCrawl.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://nlp-irish.github.io/nlp.irish/paracrawl,/translation,/nmt,/mt/2020/06/11/ParaCrawl.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://nlp-irish.github.io/nlp.irish/feed.xml" title="nlp.Irish" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/nlp.irish/">nlp.Irish</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/nlp.irish/about/">About</a><a class="page-link" href="/nlp.irish/search/">Search</a><a class="page-link" href="/nlp.irish/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">ParaCrawl</h1><p class="page-description">Open source tools to crawl, align and clean bilingual data</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-06-11T00:00:00-05:00" itemprop="datePublished">
+        Jun 11, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-06-11-ParaCrawl.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Available-for-Download--&#9989;">Available for Download  &#9989;<a class="anchor-link" href="#Available-for-Download--&#9989;"> </a></h3><p>⚠️ Always check the license of the data source before using the data ⚠️</p>
+<ul>
+<li>Main page: <a href="https://paracrawl.eu/">https://paracrawl.eu/</a></li>
+<li>Data Browse Link: <a href="https://paracrawl.eu/v6">https://paracrawl.eu/v6</a></li>
+<li>Format: <strong>.tmx</strong> or <strong>.txt</strong></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Brief-Description">Brief Description<a class="anchor-link" href="#Brief-Description"> </a></h3><p>Open source tools to crawl, align and clean bilingual data co-financed by the European Union. Open source datasets with parallel data crawled from the web and cleaned</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Other-Notes">Other Notes<a class="anchor-link" href="#Other-Notes"> </a></h3><p>NA</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Code-to-Extract-to-a-Pandas-DataFrame">Code to Extract to a Pandas DataFrame<a class="anchor-link" href="#Code-to-Extract-to-a-Pandas-DataFrame"> </a></h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">tmx2dataframe</span> <span class="kn">import</span> <span class="n">tmx2dataframe</span>
+
+<span class="n">metadata</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="n">tmx2dataframe</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;processed_data/paracrawl_v6_en-ga.tmx&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;processed_data/paracrawl_v6_en-ga.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1366628
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>source_language</th>
+      <th>source_sentence</th>
+      <th>target_language</th>
+      <th>target_sentence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>en</td>
+      <td>Moncler Jackets Womens,Moncler a clothing sens...</td>
+      <td>ga</td>
+      <td>Moncler Dúin Jackets mBan Gheimhridh Zip Hoode...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>en</td>
+      <td>Speaking at the public seminar, Director of Co...</td>
+      <td>ga</td>
+      <td>Ag labhairt dó ag an seimineár poiblí, dúirt S...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>en</td>
+      <td>Home / 2018-B / sample happy new year message 34+</td>
+      <td>ga</td>
+      <td>Baile / 2018-B / sampla teachtaireacht bhliain...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>en</td>
+      <td>No. Quartz countertops are a durable and heat-...</td>
+      <td>ga</td>
+      <td>Uimh. Is iad na countertops Grianchloch buan a...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>en</td>
+      <td>the dog becomes naughty and nervous.</td>
+      <td>ga</td>
+      <td>thiocfaidh an madra go dona agus neirbhíseach.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>source_language</th>
+      <th>source_sentence</th>
+      <th>target_language</th>
+      <th>target_sentence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>198426</th>
+      <td>en</td>
+      <td>On 20th January, 1993, Garda Lawless was trave...</td>
+      <td>ga</td>
+      <td>Ar an 20 Eanáir 1993, bhí Garda Lawless ag tai...</td>
+    </tr>
+    <tr>
+      <th>741199</th>
+      <td>en</td>
+      <td>21:8 Then, after setting out the next day, we ...</td>
+      <td>ga</td>
+      <td>21:8 Ansin, tar éis a leagan amach an chéad lá...</td>
+    </tr>
+    <tr>
+      <th>924975</th>
+      <td>en</td>
+      <td>Known for launching terminal battery life high...</td>
+      <td>ga</td>
+      <td>Is eol do sheoladh saol ceallraí críochfoirt a...</td>
+    </tr>
+    <tr>
+      <th>1310412</th>
+      <td>en</td>
+      <td>Engineers completing reports on planning appli...</td>
+      <td>ga</td>
+      <td>Ba chóir d'innealtóirí a ullmhaíonn tuairiscí ...</td>
+    </tr>
+    <tr>
+      <th>1241786</th>
+      <td>en</td>
+      <td>Individual family members can react differentl...</td>
+      <td>ga</td>
+      <td>D’fhéadfadh scaradh den tsórt seo dul i bhfeid...</td>
+    </tr>
+    <tr>
+      <th>634275</th>
+      <td>en</td>
+      <td>The last thing one wants to find on oneself af...</td>
+      <td>ga</td>
+      <td>Is é an rud deireanach mian le duine a fháil a...</td>
+    </tr>
+    <tr>
+      <th>157572</th>
+      <td>en</td>
+      <td>The LENA Worxx tractor is suitable for childre...</td>
+      <td>ga</td>
+      <td>Tá an tarracóir LENA Worxx oiriúnach do leanaí...</td>
+    </tr>
+    <tr>
+      <th>465291</th>
+      <td>en</td>
+      <td>2. —This Act may be cited as the Infanticide A...</td>
+      <td>ga</td>
+      <td>2. —Féadfar an tAcht um Naíonmharú, 1949, a gh...</td>
+    </tr>
+    <tr>
+      <th>176118</th>
+      <td>en</td>
+      <td>The hiring of civilians with the right skills ...</td>
+      <td>ga</td>
+      <td>Earcófar sibhialtaigh a bhfuil na scileanna ce...</td>
+    </tr>
+    <tr>
+      <th>933352</th>
+      <td>en</td>
+      <td>(d) a demolition order made under this Part of...</td>
+      <td>ga</td>
+      <td>(d) ordú leagtha do rinneadh fén gCuid seo den...</td>
+    </tr>
+    <tr>
+      <th>888709</th>
+      <td>en</td>
+      <td>[GA] (2) The Garda Síochána Acts, 1923 to 1958...</td>
+      <td>ga</td>
+      <td>[EN] (2) Féadfar Achtanna n Gharda Síochána, 1...</td>
+    </tr>
+    <tr>
+      <th>164022</th>
+      <td>en</td>
+      <td>(b) the amount of the interest on the company'...</td>
+      <td>ga</td>
+      <td>[EN] (b) méid an úis ar bhintiúir agus iasacht...</td>
+    </tr>
+    <tr>
+      <th>499459</th>
+      <td>en</td>
+      <td>FÁS - Recognition of Qualifications</td>
+      <td>ga</td>
+      <td>FÁS - Aitheantas ar Cháilíochtaí</td>
+    </tr>
+    <tr>
+      <th>752711</th>
+      <td>en</td>
+      <td>(2) A person who fails to comply with subsecti...</td>
+      <td>ga</td>
+      <td>(2) Duine a mhainneoidh déanamh de réir fho-al...</td>
+    </tr>
+    <tr>
+      <th>474477</th>
+      <td>en</td>
+      <td>19. Regulations made with the concurrence of t...</td>
+      <td>ga</td>
+      <td>19. Féadfaidh rialacháin a déanfar le comhthoi...</td>
+    </tr>
+    <tr>
+      <th>374173</th>
+      <td>en</td>
+      <td>Wooden MDF Box For Wine Supplier and Factory -...</td>
+      <td>ga</td>
+      <td>Soláthróir Cás Taispeáin Humidifier Chigire Hu...</td>
+    </tr>
+    <tr>
+      <th>1159993</th>
+      <td>en</td>
+      <td>[GA] Application of section 14 (3) of the Agri...</td>
+      <td>ga</td>
+      <td>[EN] Alt 14 (3) den Acht Talmhaíochta (An Fora...</td>
+    </tr>
+    <tr>
+      <th>1069310</th>
+      <td>en</td>
+      <td>This entry was posted on July 19, 2009, 2:59 p...</td>
+      <td>ga</td>
+      <td>cuireadh i bpost ar an iontráil seo Iúil 19, 2...</td>
+    </tr>
+    <tr>
+      <th>539502</th>
+      <td>en</td>
+      <td>This helicopter will also be fittedwith a Bamb...</td>
+      <td>ga</td>
+      <td>Feisteofar an héileacaptar sin le buicéad Bamb...</td>
+    </tr>
+    <tr>
+      <th>775145</th>
+      <td>en</td>
+      <td>(2) Any person who is aggrieved by the decisio...</td>
+      <td>ga</td>
+      <td>(2) Nuair a bheidh éileamh á chinneadh ag na C...</td>
+    </tr>
+    <tr>
+      <th>1009110</th>
+      <td>en</td>
+      <td>rolex masterpiece automatic full gold diamond ...</td>
+      <td>ga</td>
+      <td>masterpiece Rolex Diamond uathoibríoch marcála...</td>
+    </tr>
+    <tr>
+      <th>531551</th>
+      <td>en</td>
+      <td>Sponsors: County Donegal Heritage Office, Done...</td>
+      <td>ga</td>
+      <td>Urraithe: Oifig Oidhreachta Chontae Dhún na nG...</td>
+    </tr>
+    <tr>
+      <th>678310</th>
+      <td>en</td>
+      <td>The IT Section has also supported other depart...</td>
+      <td>ga</td>
+      <td>Thug an Rannóg TF tacaíocht do ranna eile nuai...</td>
+    </tr>
+    <tr>
+      <th>879087</th>
+      <td>en</td>
+      <td>Online play: flash games castle defense, castl...</td>
+      <td>ga</td>
+      <td>Imirt ar líne: cluichí flash caisleán cosanta,...</td>
+    </tr>
+    <tr>
+      <th>437555</th>
+      <td>en</td>
+      <td>-Bands linked together by Threaded screws like...</td>
+      <td>ga</td>
+      <td>Bannaí nasctha le chéile ag scriúnna snáithith...</td>
+    </tr>
+    <tr>
+      <th>1144512</th>
+      <td>en</td>
+      <td>Shopping in the EU</td>
+      <td>ga</td>
+      <td>Siopadóireacht san AE</td>
+    </tr>
+    <tr>
+      <th>733110</th>
+      <td>en</td>
+      <td>24 and 25 December 2013 Homily Christmas →</td>
+      <td>ga</td>
+      <td>24 agus 25 Nollaig 2013 Aitheasc Nollag →</td>
+    </tr>
+    <tr>
+      <th>326519</th>
+      <td>en</td>
+      <td>Home Business and Economy Dublin Economic Monitor</td>
+      <td>ga</td>
+      <td>Baile Gnó agus Eacnamaíocht Monatóir Geilleagr...</td>
+    </tr>
+    <tr>
+      <th>1184048</th>
+      <td>en</td>
+      <td>First Previous (THIRD SCHEDULE. COMMITTEES TO ...</td>
+      <td>ga</td>
+      <td>An Chéad Lch. Lch. Roimhe Seo (TRIU SCEIDEAL. ...</td>
+    </tr>
+    <tr>
+      <th>1241711</th>
+      <td>en</td>
+      <td>Click on “On-line Hack” button below and you w...</td>
+      <td>ga</td>
+      <td>Cliceáil ar “Ar-líne Hack” cnaipe thíos agus b...</td>
+    </tr>
+    <tr>
+      <th>1354113</th>
+      <td>en</td>
+      <td>Now you're probably thinking That a few gaps o...</td>
+      <td>ga</td>
+      <td>Anois tá tú ag smaoineamh is dócha Nach mbeidh...</td>
+    </tr>
+    <tr>
+      <th>804927</th>
+      <td>en</td>
+      <td>There is no restriction on earnings or the num...</td>
+      <td>ga</td>
+      <td>Níl aon teorainn leis an tuilleamh ná leis an ...</td>
+    </tr>
+    <tr>
+      <th>665197</th>
+      <td>en</td>
+      <td>3. Helps prevent hair loss and graying hair.</td>
+      <td>ga</td>
+      <td>3. Cuidíonn sé le cosc a chur ar chaillteanas ...</td>
+    </tr>
+    <tr>
+      <th>1185713</th>
+      <td>en</td>
+      <td>FÁS - Supply Chain Logistics Administrator Tra...</td>
+      <td>ga</td>
+      <td>FÁS - Cúrsa Oiliúna do Riarthóir Lóistíochta S...</td>
+    </tr>
+    <tr>
+      <th>1254702</th>
+      <td>en</td>
+      <td>36. Complaints about registered retail pharmac...</td>
+      <td>ga</td>
+      <td>Gearáin faoi chógaiseoirí cláraithe. 36 .</td>
+    </tr>
+    <tr>
+      <th>705917</th>
+      <td>en</td>
+      <td>Date Display Weekday Month Display Calendar Di...</td>
+      <td>ga</td>
+      <td>Taispeáin Dáta I rith na seachtaine Mí Taispeá...</td>
+    </tr>
+    <tr>
+      <th>713111</th>
+      <td>en</td>
+      <td>(d) there shall be entered into the Register s...</td>
+      <td>ga</td>
+      <td>(d) taifeadfar sa Chlár cibé sonraí eile (más ...</td>
+    </tr>
+    <tr>
+      <th>578491</th>
+      <td>en</td>
+      <td>The county of Meath, except the parts thereof ...</td>
+      <td>ga</td>
+      <td>Contae na Mí, ach amháin an chuid sin de atá i...</td>
+    </tr>
+    <tr>
+      <th>1359946</th>
+      <td>en</td>
+      <td>The French shores are washed by the North and ...</td>
+      <td>ga</td>
+      <td>Níonn na Muirir Thuaidh agus na Meánmhara, Bá ...</td>
+    </tr>
+    <tr>
+      <th>281613</th>
+      <td>en</td>
+      <td>Pei is a medium size dog, attentive, careful.</td>
+      <td>ga</td>
+      <td>Is madra meánmhéide é Pei, aireach, cúramach.</td>
+    </tr>
+    <tr>
+      <th>760395</th>
+      <td>en</td>
+      <td>Nagoya University - Higher Education abroad in...</td>
+      <td>ga</td>
+      <td>Ollscoil Nagoya - Ard-Oideachas thar lear san ...</td>
+    </tr>
+    <tr>
+      <th>1043028</th>
+      <td>en</td>
+      <td>Interest on and redemption of land bonds.</td>
+      <td>ga</td>
+      <td>An t-ús a bheidh ar bhannaí talmhan agus fuasc...</td>
+    </tr>
+    <tr>
+      <th>1285606</th>
+      <td>en</td>
+      <td>shall not be subject to the provisions of the ...</td>
+      <td>ga</td>
+      <td>ní bheidh sé nó sí faoi réir fhorálacha an Ach...</td>
+    </tr>
+    <tr>
+      <th>446548</th>
+      <td>en</td>
+      <td>Clothing changes a person both externally and ...</td>
+      <td>ga</td>
+      <td>Athruithe Éadaí duine seachtrach agus go hinmh...</td>
+    </tr>
+    <tr>
+      <th>983378</th>
+      <td>en</td>
+      <td>Thanks to the exquisite design and high qualit...</td>
+      <td>ga</td>
+      <td>Buíochas le dearadh fíorúil agus dea-chaighdeá...</td>
+    </tr>
+    <tr>
+      <th>744588</th>
+      <td>en</td>
+      <td>4:9 All the things that you have learned and a...</td>
+      <td>ga</td>
+      <td>4:9 Gach na rudaí a d'fhoghlaim tú agus glacad...</td>
+    </tr>
+    <tr>
+      <th>384018</th>
+      <td>en</td>
+      <td>Referendum Commission Official Languages Act 2003</td>
+      <td>ga</td>
+      <td>An Coimisiún Reifrinn Acha na dTeangacha Oifug...</td>
+    </tr>
+    <tr>
+      <th>1118395</th>
+      <td>en</td>
+      <td>(If anyone here speaks Hmong, please contact us)</td>
+      <td>ga</td>
+      <td>(Má labhraíonn aon duine anseo Hmong, déan tea...</td>
+    </tr>
+    <tr>
+      <th>99410</th>
+      <td>en</td>
+      <td>Anabolic steroids helped me to achieve amazing...</td>
+      <td>ga</td>
+      <td>stéaróidigh Anabolic chabhraigh liom chun tort...</td>
+    </tr>
+    <tr>
+      <th>306414</th>
+      <td>en</td>
+      <td>Some people may feel that it is a good time to...</td>
+      <td>ga</td>
+      <td>D'fhéadfadh roinnt daoine a bhraitheann go bhf...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><a class="u-url" href="/nlp.irish/paracrawl,/translation,/nmt,/mt/2020/06/11/ParaCrawl.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/nlp.irish/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/nlp.irish/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/nlp.irish/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Curated Irish language datasets for NLP research</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/nlp-irish" title="nlp-irish"><svg class="svg-icon grey"><use xlink:href="/nlp.irish/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
