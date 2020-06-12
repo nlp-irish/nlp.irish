@@ -11,3 +11,5 @@ _notebooks/.ipynb_checkpoints
 .netlify
 .tweet-cache
 __pycache__
+_notebooks/processed_data/paracrawl_v6_en-ga.csv
+_notebooks/processed_data/paracrawl_v6_en-ga.tmx
