@@ -1,1 +1,1 @@
-Sitemap: https://nlp-irish.github.io/nlp.irish/sitemap.xml
+Sitemap: https://www.nlp.irish/sitemap.xml
