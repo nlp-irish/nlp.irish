@@ -73,7 +73,7 @@
   
       ,"page2": {
           "title": "",
-          "content": ". This is a collection of descriptions, sources and extraction instructions for Irish language natural language processing (NLP) text datasets for NLP research. . Would you like to add to this collection? Great! This site is hosted on GitHub, head up to the About section to see how to contribute . Datasets Described Here: . Parallel Corpora . ELRC, European Language Resource Coordination | DGT-TM, DGT-Translation Memory | DCEP, Digital Corpus of the European Parliament | ParaCrawl, v6 | . Monolingua Irish Corpora . tbd | . Task-specific corpora . tbd | . . ALL DATASETS DESCRIPTIONS 👇 .",
+          "content": ". This is a collection of descriptions, sources and extraction instructions for Irish language natural language processing (NLP) text datasets for NLP research. . Would you like to add to this collection? Great! This site is hosted on GitHub, head up to the About section to see how to contribute . Datasets Described Here: . Parallel Corpora . ELRC, European Language Resource Coordination | DGT-TM, DGT-Translation Memory | DCEP, Digital Corpus of the European Parliament | ParaCrawl, v6 | Tatoeba | . Monolingua Irish Corpora . tbd | . Task-specific corpora . tbd | . . ALL DATASET DESCRIPTIONS 👇 .",
           "url": "https://nlp-irish.github.io/nlp.irish/",
           "relUrl": "/",
           "date": ""
